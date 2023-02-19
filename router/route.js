@@ -8,6 +8,7 @@ import { addPayRoll,getEmployeePay , updateEmployeePay , deletePayroll} from "..
 import { addPercormance , getEmployeePerformance , updateEmployeePerformance , deletePerformance} from "../controllers/performance-controller.js";
 import { addTraining , getTraining , updateTraining , deleteTraining} from "../controllers/training-controller.js";
 import { addHiring,getHiring , updateHiring , deleteHiring} from "../controllers/hiring-controller.js";
+import {addRole , getRole , updateRole , deleteRole} from "../controllers/role-controller.js";
 const userRoute = express.Router();
 
 userRoute.post("/add", useradd)
@@ -47,5 +48,10 @@ userRoute.post("/employeeHiring",addHiring)
 userRoute.get("/employeeHiring",getHiring)
 userRoute.put("/employeeHiring/:id",updateHiring)
 userRoute.delete("/employeeHiring/:id",deleteHiring)
+
+userRoute.post("/addRole",addRole)
+userRoute.get("/addRole",getRole)
+userRoute.put("/addRole/:id",updateRole)
+userRoute.delete("/addRole/:id",deleteRole)
 
 export default userRoute;
