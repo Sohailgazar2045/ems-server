@@ -2,7 +2,7 @@ import User from "../models/User.js";
 import bcrypt from "bcrypt";
 const useradd = async (req, res) => {
     const email = req.body.email;
-    const password = req.body.password;
+    // const password = req.body.password;
     try {
         // Check if the email already exists in the database
         const existingUser = await User.findOne({ email });

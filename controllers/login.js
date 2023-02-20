@@ -1,12 +1,20 @@
-import User from "../models/User.js";
+// import User from "../models/User.js";
+import schemaRole from "../models/role.js"
 import bcrypt from "bcrypt";
 import  Jwt  from "jsonwebtoken";
 const userLogin = async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
+    // try {
+    //     const existingUser = await User.findOne({ email: email });
+    //     if (!existingUser) {
+    //         return res.status(400).json({ message: "Enter correct Email" });
+    //     }
+
+    
     try {
-        const existingUser = await User.findOne({ email: email });
+        const existingUser = await schemaRole.findOne({ email: email });
         if (!existingUser) {
             return res.status(400).json({ message: "Enter correct Email" });
         }

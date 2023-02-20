@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-const performanceSchema =  new Schema
+const RoleSchema =  new Schema
 (
     {
     
@@ -27,5 +27,5 @@ const performanceSchema =  new Schema
     }
 )
 
-const perform = mongoose.model("schemaRole", performanceSchema);
+const perform = mongoose.model("schemaRole", RoleSchema);
 export default perform;
