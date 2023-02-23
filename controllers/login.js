@@ -24,9 +24,10 @@ const userLogin = async (req, res) => {
             return res.status(400).json({ message: "Incorrect Password" });
         }
         const role = existingUser.role;
+        const userName = existingUser.role;
 
         const token = Jwt.sign({ userId: existingUser._id }, process.env.SECRET_KEY, { expiresIn: "5h" });
-        return res.status(200).json({ message: "Successfully Logged In", token: token , role:role});
+        return res.status(200).json({ message: "Successfully Logged In", token: token , role:role , userName:userName});
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
