@@ -8,11 +8,6 @@ const addEmployeeToDirectory = async (req, res) => {
   const contactInformation = req.body.contactInformation;
   const dateOfHire = req.body.dateOfHire;
 
-  // try {
-  //   const existingUser = await EmployeeDirectry.findOne({ employeeID });
-  //   if (existingUser) {
-  //     return res.status(400).json({ message: "User already exists" });
-  //   }
     // save data in database
     const employeeD = new EmployeeDirectry({
       firstName,
@@ -28,9 +23,7 @@ const addEmployeeToDirectory = async (req, res) => {
     } else {
       return res.status(400).json({ message: "Unable to save employee to directory" });
     }
-  // } catch (error) {
-  //   return res.status(400).json({ message: error.message });
-  // }
+  
 };
 
 // retrieve data from employee directory

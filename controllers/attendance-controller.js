@@ -21,33 +21,6 @@ const createAttendance = async (req, res) => {
   }
 };
 
-// import Attendance from '../models/attendance.js';
-// const createAttendance = async (req, res) => {
-//   const { date, checkInTime, checkOutTime } = req.body;
-//   const { id } = req.params;
-//   try {
-//     const existingAttendance = await Attendance.findOne({id });
-
-//     if (existingAttendance) {
-//       return res.status(400).json({ message: "Attendance already exists" });
-//     }
-
-//     const newAttendance = new Attendance({
-//       date,
-//       checkInTime,
-//       checkOutTime,
-//     });
-
-//     const savedAttendance = await newAttendance.save();
-
-//     return res.status(201).json({
-//       message: "Attendance added successfully",
-//       attendance: savedAttendance,
-//     });
-//   } catch (error) {
-//     return res.status(500).json({ message: error.message });
-//   }
-// };
 
 const getAttendance = async (req, res) => {
   try {

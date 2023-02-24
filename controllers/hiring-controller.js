@@ -11,34 +11,36 @@ const addHiring = async (req, res) => {
   const offerSalary = req.body.offerSalary;
   const hireDate = req.body.hireDate;
      
-  // // const { employeeID } = req.params;
-  // try {
-  //   const existingUser = await hiring.findOne({employeeID});
-  //   if (existingUser) {
-  //     return res.status(400).json({ message: "User already exists" });
-  //   }
+  // check if employee already exists
+  try {
+    const existingEmployee = await hiring.findOne({ jobID });
+    if (existingEmployee) {
+      return res.status(400).json({ message: "Employee already exists" });
+    }
+  
     // save data in database
     const employeeHiring = new hiring({
-    jobID,
-    jobTitle,
-    jobDescription,
-    applicantName,
-    interviewDate,
-    interviewer,
-    interviewerFeedback,
-    offerSalary,
-    hireDate
+      jobID,
+      jobTitle,
+      jobDescription,
+      applicantName,
+      interviewDate,
+      interviewer,
+      interviewerFeedback,
+      offerSalary,
+      hireDate
     });
     const newEmployeeperHiring = await employeeHiring.save();
-    if (newEmployeeperHiring ) {
+    if (newEmployeeperHiring) {
       return res.status(201).json({ message: "Employeehiring added successfully", training: newEmployeeperHiring });
     } else {
       return res.status(400).json({ message: "Unable to save" });
     }
-  // } catch (error) {
-  //   return res.status(400).json({ message: error.message });
-  // }
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
 };
+
 
 // retrieve data from employee directorys
 const getHiring = async (req, res) => {
